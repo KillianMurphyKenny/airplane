@@ -112,7 +112,7 @@ void Game::render()
 {
 	m_window.clear(sf::Color::White);
 	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	m_window.draw(m_playerPlane);
 	m_window.display();
 }
 
@@ -141,11 +141,12 @@ void Game::setupFontAndText()
 /// </summary>
 void Game::setupSprite()
 {
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
+	if (!m_playerPlaneTexture.loadFromFile("ASSETS\\IMAGES\\planes.png"))
 	{
 		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
+		std::cout << "problem loading plane" << std::endl;
 	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
+	m_playerPlane.setTexture(m_playerPlaneTexture);
+	m_playerPlane.setTextureRect(sf::IntRect(110, 100, 120, 100));
+	m_playerPlane.setPosition(300.0f, 180.0f);
 }
